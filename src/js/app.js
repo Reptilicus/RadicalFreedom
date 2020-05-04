@@ -75,12 +75,6 @@ App = {
   },
 
   publishArticle: function() {
-    alert("publishing!");
-    try {
-      alert(CryptoJS.SHA256("hello").toString(CryptoJS.enc.Hex));
-    } catch (err) {
-      alert(err);
-    }
     var article = $('#articleLink').val();
     App.contracts.RadicalFreedom.deployed().then(function(instance) {
       return instance.pushArticle(article, '0x' + CryptoJS.SHA256(article).toString(CryptoJS.enc.Hex));
